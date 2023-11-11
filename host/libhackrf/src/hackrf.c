@@ -29,7 +29,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 	#include <unistd.h>
 	#include <signal.h>
 #endif
-#include <libusb.h>
 
 #ifdef _WIN32
 	/* Avoid redefinition of timespec from time.h (included by libusb.h) */
@@ -699,7 +698,7 @@ libusb_device_handle* hackrf_open_usb(const char* const desired_serial_number)
 	return usb_device;
 }
 
-static int hackrf_open_setup(libusb_device_handle* usb_device, hackrf_device** device)
+int hackrf_open_setup(libusb_device_handle* usb_device, hackrf_device** device)
 {
 	int result;
 	hackrf_device* lib_device;

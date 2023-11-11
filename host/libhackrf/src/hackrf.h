@@ -27,6 +27,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 #include <stdint.h>
 #include <sys/types.h>
 #include <stdbool.h> // for bool
+#include <libusb.h>
 #ifdef _WIN32
 	#define ADD_EXPORTS
 
@@ -1123,6 +1124,8 @@ extern ADDAPI int ADDCALL hackrf_open(hackrf_device** device);
 extern ADDAPI int ADDCALL hackrf_open_by_serial(
 	const char* const desired_serial_number,
 	hackrf_device** device);
+
+extern ADDAPI int ADDCALL hackrf_open_setup(libusb_device_handle* usb_device, hackrf_device** device);
 
 /**
  * Close a previously opened device
